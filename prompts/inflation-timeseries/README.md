@@ -1,5 +1,13 @@
 # Prompts and responses to generate ML prediction code for inflation.
 
+### notes:
+
+- prompts were done in backwrards order :facepalm:
+- likely will need to manually specify the format of the data.
+- will need to add more specificity to chatgpt prompts to store artifacts and allow for a proper mlops pipeline.
+- still intuitively seems like code reuse ought to be a library as opposed to a generative model
+
+
 ## Prompt 1:
 #### Prompt: create python code to train a machine learning model that predicts inflation rates
 
