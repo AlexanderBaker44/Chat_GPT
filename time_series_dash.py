@@ -28,3 +28,4 @@ combined_data = pd.concat([cpi_data, pd.DataFrame({'CPI': forecast}, index=forec
 
 # Display the forecasted CPI values in a line chart
 st.line_chart(combined_data['CPI'])
+st.write(combined_data.tail(12))
