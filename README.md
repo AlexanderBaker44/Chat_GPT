@@ -1,0 +1,1 @@
+[![Docker Image CI](https://github.com/AlexanderBaker44/Chat_GPT/actions/workflows/docker-image.yml/badge.svg?branch=kaseymallette)](https://github.com/AlexanderBaker44/Chat_GPT/actions/workflows/docker-image.yml)
