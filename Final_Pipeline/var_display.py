@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import matplotlib.pyplot as plt
 
 def display_selected_value():
     # Load dataset from data folder
@@ -37,3 +38,33 @@ def display_selected_value():
     # display the selected value on the dash
     rounded_value = round(selected_value, 5)
     st.markdown(f"<h1>{rounded_value}</h1>", unsafe_allow_html=True)
+    selected_col = cov_param_df[col_index]
+    selected_row = cov_param_df.loc[row_index]
+
+
+
+    # Get the selected row and column from cov_param_df
+    selected_row = cov_param_df.loc[row_index]
+    selected_col = cov_param_df[col_index]
+
+    # create a bar chart of the selected row
+    fig, ax = plt.subplots()
+    ax.bar(x=range(len(selected_row)), height=selected_row)
+    ax.set_xticks(range(len(selected_row)))
+    ax.set_xticklabels(df.columns, rotation=45, ha='right')
+    ax.set_ylabel('Value')
+    ax.set_title(f'Selected Row: {row_index}')
+    plt.yticks(fontsize=10)
+    st.set_option('deprecation.showPyplotGlobalUse', False)
+    st.pyplot(fig)
+
+    # create a bar chart of the selected column
+    fig, ax = plt.subplots()
+    ax.bar(x=range(len(selected_col)), height=selected_col)
+    ax.set_xticks(range(len(selected_col)))
+    ax.set_xticklabels(df.columns, rotation=45, ha='right')
+    ax.set_ylabel('Value')
+    ax.set_title(f'Selected Column: {col_index}')
+    plt.yticks(fontsize=10)
+    st.set_option('deprecation.showPyplotGlobalUse', False)
+    st.pyplot(fig)

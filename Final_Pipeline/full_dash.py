@@ -5,6 +5,7 @@ from utils.update_functions import train_var_model, forecast_var_model, dickey_f
 import streamlit as st
 import datetime
 import calendar
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Get today's date
 today = datetime.date.today()
