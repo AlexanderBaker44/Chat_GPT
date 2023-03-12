@@ -7,13 +7,14 @@ def display_selected_value():
     # Load dataset from data folder
     df = pd.read_csv("data/concatenated_df.csv", index_col=0)
 
-    
+
     # assuming the dataframe is named 'df'
     df = df.rename(columns={'CPALTT01USM657N': 'Adjusted_CPI'})
 
     # Create a list of column names
     cols = list(df.columns)
 
+    st.header('Economic Effects Display')
     # Add a widget to select the first value
     value1 = st.selectbox('Select a value from the list', cols)
 
@@ -23,7 +24,7 @@ def display_selected_value():
     cols = list(df.columns)
     # Add a widget to select the second value
     value2 = st.selectbox('Select another value from the list', cols)
-
+    st.header('Economic Factors Covariance')
     # Display the selected values
     st.write('Selected values:', value1, 'and', value2)
 
@@ -50,7 +51,7 @@ def display_selected_value():
     # Get the selected row and column from cov_param_df
     selected_row = cov_param_df.loc[row_index]
     selected_col = cov_param_df[col_index]
-
+    st.header('Other Relevant Covariance')
     # create a bar chart of the selected row
     fig, ax = plt.subplots()
     ax.bar(x=range(len(selected_row)), height=selected_row)
