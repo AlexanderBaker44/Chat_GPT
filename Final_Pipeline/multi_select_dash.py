@@ -6,6 +6,10 @@ def display_data():
     # read in the data
     data = pd.read_csv('data/fred_data_scaled_with_preds.csv', index_col=0)
 
+    
+    data = data.rename(columns={'CPALTT01USM657N': 'Adjusted_CPI'})
+
+
     cols = st.multiselect("Select one or more columns", data.columns.tolist(), default=["CPI"])
 
     # Filter the data based on selected columns

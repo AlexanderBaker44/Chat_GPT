@@ -7,6 +7,10 @@ def display_selected_value():
     # Load dataset from data folder
     df = pd.read_csv("data/concatenated_df.csv", index_col=0)
 
+    
+    # assuming the dataframe is named 'df'
+    df = df.rename(columns={'CPALTT01USM657N': 'Adjusted_CPI'})
+
     # Create a list of column names
     cols = list(df.columns)
 
