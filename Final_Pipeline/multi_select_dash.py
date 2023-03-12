@@ -6,9 +6,10 @@ def display_data():
     # read in the data
     data = pd.read_csv('data/fred_data_scaled_with_preds.csv', index_col=0)
 
-    
+
     data = data.rename(columns={'CPALTT01USM657N': 'Adjusted_CPI'})
 
+    st.header('Economic Factors Display')
 
     cols = st.multiselect("Select one or more columns", data.columns.tolist(), default=["CPI"])
 
@@ -33,5 +34,6 @@ def display_data():
         filtered_data.index = pd.to_datetime(filtered_data.index)
         filtered_data = filtered_data.loc[start_date:end_date]
 
+    st.header('Economic Behaviors Overtime')
     # Display the filtered data on a line chart
     st.line_chart(filtered_data)
